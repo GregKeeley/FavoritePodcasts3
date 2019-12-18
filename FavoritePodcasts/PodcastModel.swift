@@ -17,10 +17,12 @@ struct Podcast: Decodable {
     let trackId: Int
     let artistName: String
     let trackName: String
-    let artworkUrl30: String
-    let artworkUrl60: String
     let artworkUrl100: String
+    let artworkUrl600: String
     let releaseDate: String
     let primaryGenreName: String
-    //let contentAdvisoryRating: String
+    let trackCount: Int
+    let genres: [String]
+   // let contentAdvisoryRating: 
 }
+
