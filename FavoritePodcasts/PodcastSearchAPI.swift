@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct PodcastSearchAPI {
     static func searchPodcasts(for searchQuery: String, completion: @escaping (Result<[Podcast], AppError>) -> ()) {
         let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)

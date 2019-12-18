@@ -23,6 +23,7 @@ struct Podcast: Decodable {
     let primaryGenreName: String
     let trackCount: Int
     let genres: [String]
+    let collectionName: String
    // let contentAdvisoryRating: 
 }
 
