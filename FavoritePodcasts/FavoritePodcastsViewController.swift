@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FavoritePodcastsViewController.swift
 //  FavoritePodcasts
 //
 //  Created by Gregory Keeley on 12/17/19.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FavoritePodcastsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
     }
+    
 
 
 }
-

@@ -22,13 +22,13 @@ struct PodcastSearchAPI {
                 completion(.failure(.networkError(appError)))
             case .success(let data):
                 do {
-                    let searchResults = try JSONDecoder().decode(Podcast.self, from: data)
-                    var podcasts = [Podcast]()
-                    podcasts.append(searchResults)
+                    let searchResults = try JSONDecoder().decode(PodcastSearch.self, from: data)
+                    let podcasts = searchResults.results
                     completion(.success(podcasts))
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }
+                
             }
         }
     }

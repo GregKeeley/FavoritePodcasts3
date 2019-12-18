@@ -8,20 +8,19 @@
 
 import Foundation
 
-struct Podcasts: Decodable {
-    let resultCount: Double
+struct PodcastSearch: Decodable {
     let results: [Podcast]
 }
 
 struct Podcast: Decodable {
-    let collectionId: Double
-    let trackId: Double
+    let collectionId: Int
+    let trackId: Int
     let artistName: String
-    let trackname: String
+    let trackName: String
     let artworkUrl30: String
     let artworkUrl60: String
     let artworkUrl100: String
     let releaseDate: String
-    let primaryGenre: String
-    let contentAdvisoryRating: String
+    let primaryGenreName: String
+    //let contentAdvisoryRating: String
 }
