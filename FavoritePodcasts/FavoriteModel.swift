@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct FavoritePodcast: Codable {
-    //let favoriteId: String - Assigned by API server?
-    //let createdAt: Int - Assigned by API server?
-    let trackId: Int
-    let collectionName: String
-    let artworkUrl600: String
-    let favoritedBy: String
-}
+//struct FavoritePodcast: Codable {
+//    //let favoriteId: String - Assigned by API server?
+//    //let createdAt: Int - Assigned by API server?
+//    let trackId: Int
+//    let collectionName: String
+//    let artworkUrl600: String
+//    let favoritedBy: String
+//}

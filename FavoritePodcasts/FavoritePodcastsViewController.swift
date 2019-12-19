@@ -9,12 +9,8 @@
 import UIKit
 
 class FavoritePodcastsViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    
-    private var refreshControl: UIRefreshControl!
     
     var favoritePodcasts = [Podcast]() {
         didSet {
@@ -24,20 +20,25 @@ class FavoritePodcastsViewController: UIViewController {
         }
     }
     
-   // MARK: ViewDidLoad
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        loadFavoritePodcasts()
     }
-    func configureRefreshControl() {
-        refreshControl = UIRefreshControl()
-        tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(loadFavoritePodcasts), for: .valueChanged)
-    }
-@objc
-    private func loadFavoritePodcasts() {
     
-    }
+    func loadFavoritePodcasts() {
 
+        FavoritePodcastAPI.getFavorites(for: "Greg K", completion: { (result) in
+            switch result {
+            case .failure(let appError):
+                print("Error: \(appError)")
+            case .success(let podcasts):
+                self.favoritePodcasts = podcasts
+                dump(self.favoritePodcasts)
+            }
+        })
+    }
 }
 // MARK: TableViewDataSource
 extension FavoritePodcastsViewController: UITableViewDataSource {
@@ -47,7 +48,7 @@ extension FavoritePodcastsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "favoritePodcastCell", for: indexPath) as? PodcastCell else {
-             fatalError("failed to dequeue to podcastCell")
+            fatalError("failed to dequeue to podcastCell")
         }
         let podcast = favoritePodcasts[indexPath.row]
         cell.configureCell(podcast)

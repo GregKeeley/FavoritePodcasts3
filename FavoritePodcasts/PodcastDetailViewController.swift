@@ -17,8 +17,7 @@ class PodcastDetailViewController: UIViewController {
     //@IBOutlet weak var contentAdvisoryLabel: UILabel!
     @IBOutlet weak var podcastImage: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!
-    
-    let user = "Greg K"
+
     var podcast: Podcast?
     
     override func viewDidLoad() {
@@ -29,8 +28,8 @@ class PodcastDetailViewController: UIViewController {
     func loadData() {
         showNameLabel.text = podcast?.trackName
         artistNameLabel.text = podcast?.artistName
-        trackCountLabel.text = podcast?.trackCount.description
-        releaseDateLabel.text = podcast?.releaseDate.convertISODate()
+        trackCountLabel.text = podcast?.trackCount?.description
+        releaseDateLabel.text = podcast?.releaseDate?.convertISODate()
         
         podcastImage.getImage(with: podcast!.artworkUrl600) { [weak self] (result) in
             switch result {
@@ -49,13 +48,13 @@ class PodcastDetailViewController: UIViewController {
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        let favoritedBy = user
-        guard let trackId = podcast?.trackId,
-            let collectionName = podcast?.collectionName,
-            let artworkUrl600 = podcast?.artworkUrl600 else {
+        let favoritedBy = "Greg K"
+        guard let podcast = podcast else {
                 return
         }
-        let favoritePodcast = FavoritePodcast(trackId: trackId, collectionName: collectionName, artworkUrl600: artworkUrl600, favoritedBy: favoritedBy)
+               
+        let favoritePodcast = Podcast(trackId: podcast.trackId, artistName: nil, trackName: nil, artworkUrl100: nil, artworkUrl600: podcast.artworkUrl600, releaseDate: nil, primaryGenreName: nil, trackCount: nil, genres: nil, collectionName: podcast.collectionName, favoritedBy: favoritedBy, contentAdvisoryRating: nil)
+
         
         FavoritePodcastAPI.postFavorite(podcast: favoritePodcast) { (result) in
             switch result {

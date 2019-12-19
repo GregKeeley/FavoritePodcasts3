@@ -22,7 +22,6 @@
 		C13C0FFD23A97E7B000058F5 /* PodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C0FFC23A97E7B000058F5 /* PodcastDetailViewController.swift */; };
 		C13C0FFF23A97E9D000058F5 /* FavoritePodcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C0FFE23A97E9D000058F5 /* FavoritePodcastsViewController.swift */; };
 		C13C100123A97FE4000058F5 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C100023A97FE4000058F5 /* PodcastCell.swift */; };
-		C1F8434723A9C09900E1EB35 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F8434623A9C09900E1EB35 /* FavoriteModel.swift */; };
 		C1F8434923A9C65000E1EB35 /* FavoritePodcastAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F8434823A9C65000E1EB35 /* FavoritePodcastAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		C13C0FFC23A97E7B000058F5 /* PodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewController.swift; sourceTree = "<group>"; };
 		C13C0FFE23A97E9D000058F5 /* FavoritePodcastsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePodcastsViewController.swift; sourceTree = "<group>"; };
 		C13C100023A97FE4000058F5 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
-		C1F8434623A9C09900E1EB35 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		C1F8434823A9C65000E1EB35 /* FavoritePodcastAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePodcastAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				C13C0FF023A97B0B000058F5 /* PodcastModel.swift */,
-				C1F8434623A9C09900E1EB35 /* FavoriteModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -206,7 +203,6 @@
 				C13C0FFF23A97E9D000058F5 /* FavoritePodcastsViewController.swift in Sources */,
 				C13C0FF123A97B0B000058F5 /* PodcastModel.swift in Sources */,
 				C13C0FDB23A97A6F000058F5 /* PodcastSearchViewController.swift in Sources */,
-				C1F8434723A9C09900E1EB35 /* FavoriteModel.swift in Sources */,
 				C13C0FF523A97BCC000058F5 /* AppError.swift in Sources */,
 				C13C0FF323A97BAB000058F5 /* NetworkHelper.swift in Sources */,
 				C13C0FD723A97A6F000058F5 /* AppDelegate.swift in Sources */,

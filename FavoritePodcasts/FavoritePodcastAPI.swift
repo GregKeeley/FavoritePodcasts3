@@ -9,7 +9,7 @@
 import Foundation
 
 struct FavoritePodcastAPI {
-     static func getFavorites(for user: String, completion: @escaping (Result<[FavoritePodcast], AppError>) -> ()) {
+     static func getFavorites(for user: String, completion: @escaping (Result<[Podcast], AppError>) -> ()) {
         let endpointURLString = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
         guard let url = URL(string: endpointURLString) else {
             completion(.failure(.badURL(endpointURLString)))
@@ -22,7 +22,7 @@ struct FavoritePodcastAPI {
                 completion(.failure(.networkError(appError)))
             case .success(let data):
                 do {
-                    let podcasts = try JSONDecoder().decode([FavoritePodcast].self, from: data)
+                    let podcasts = try JSONDecoder().decode([Podcast].self, from: data)
                     let usersPodcasts = podcasts.filter { $0.favoritedBy == user }
                     completion(.success(usersPodcasts))
                 } catch {
@@ -32,7 +32,7 @@ struct FavoritePodcastAPI {
         }
     }
     
-    static func postFavorite(podcast: FavoritePodcast, completion: @escaping (Result<Bool, AppError>) -> ()) {
+    static func postFavorite(podcast: Podcast, completion: @escaping (Result<Bool, AppError>) -> ()) {
         let endpointURLString = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
         guard let url = URL(string: endpointURLString) else {
             completion(.failure(.badURL(endpointURLString)))

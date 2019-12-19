@@ -21,8 +21,8 @@ class PodcastCell: UITableViewCell {
         podcastShowLabel.text = podcast.trackName
         artistNameLabel.text = podcast.artistName
         genreLabel.text = podcast.primaryGenreName
-        episodesCountLabel.text = ("Episode Count: \(podcast.trackCount.description)")
-        podcastImage.getImage(with: podcast.artworkUrl100) { [weak self] (result) in
+        episodesCountLabel.text = ("Episode Count: \(podcast.trackCount?.description ?? "0")")
+        podcastImage.getImage(with: podcast.artworkUrl600 ?? "") { [weak self] (result) in
             switch result {
             case .failure(let error):
                 print("error: \(error)")
